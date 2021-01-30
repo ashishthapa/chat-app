@@ -8,7 +8,6 @@ dotenv.config();
 
 import mongoConnect from './config/mongo';
 import Message from './models/message';
-import fileUploader from "./controllers/fileUploader";
 
 const io = socketIO(process.env.SOCKET_PORT);
 const app = express();
@@ -73,12 +72,6 @@ app.use((req, res, next) => {
 
 //sending json data
 app.use(bodyParser.json());
-
-//handle http request for username and image for upload
-const storage = multer.memoryStorage();
-const upload = multer({storage});
-
-app.post('/api/upload', upload.single('avatar'), fileUploader);
 
 /**
  *

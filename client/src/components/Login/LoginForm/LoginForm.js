@@ -34,7 +34,6 @@ const LoginForm = ({setUserDataForChat}) => {
           .then(response => {
             setUserDataForChat({
               user_name: userName,
-              user_avatar: response.data.user_avatar_url
             });
           })
           .catch( error => {
@@ -63,27 +62,6 @@ const LoginForm = ({setUserDataForChat}) => {
           }
         }}
       />
-      <label>
-        <input
-          style={{display:"none"}}
-          id="upload-avatar"
-          name="upload-avatar"
-          ref={imageInput}
-          type="file"
-          accept="image/x-png,image/gif,image/jpeg"
-        />
-        <Fab
-          color="secondary"
-          size="small"
-          component="span"
-          aria-label="add"
-          variant="extended"
-        >
-          <AddIcon /> Upload avatar
-        </Fab>
-        <br />
-        <br />
-      </label>
       <Button
         variant="contained"
         color="primary"
