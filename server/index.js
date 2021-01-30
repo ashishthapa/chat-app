@@ -1,7 +1,6 @@
 import socketIO from "socket.io";
 import express from "express";
 import bodyParser from "body-parser";
-import multer from "multer";
 
 import dotenv from "dotenv";
 dotenv.config();
@@ -31,12 +30,11 @@ io.on("connection", (socket) =>{
       const message = new Message(
         {
           user_name: data.user_name,
-          user_avatar: data.user_avatar,
           message_text: data.message,
         }
       )
       message.save().then(()=>{
-        io.emit("newChatMessage",{user_name: data.user_name, user_avatar: data.user_avatar, message_text: data.message});
+        io.emit("newChatMessage",{user_name: data.user_name, message_text: data.message});
       }).catch(error => console.log("error: "+error))
     }catch (e) {
       console.log("error: "+e);

@@ -7,46 +7,36 @@ import axios from "axios";
 const LoginForm = ({setUserDataForChat}) => {
   const [loading, setLoading] = useState(false);
   const userNameInput = useRef("");
-  const imageInput = useRef("");
 
   const enterChatClick = () =>{
-    setUserName(userNameInput.current.value);
+    setUserName();
   }
 
-  const sendData = async (options) => {
-    return await axios.post('http://localhost:5002/api/upload',options);
+  let getRandomNumber = ()=>  {
+    let min = Math.ceil(1);
+    let max = Math.floor(100);
+    return Math.floor(Math.random() * (max - min + 1) + min); 
   }
 
-  const setUserName = (userName, imageFile) =>{
-    if(userName === ""){
-      return false;
-    }
-    if(imageFile === undefined){
-      setUserDataForChat({
-        user_name: userName,
-      });
-    }else{
-      setLoading(true);
+  const setUserName = () =>{
+    let userName = "";
+    let suffix = getRandomNumber();
+    userName = "anon" + suffix;
+    setLoading(true);
+    console.log(userName);
       try{
-        sendData(data)
-          .then(response => {
-            setUserDataForChat({
-              user_name: userName,
-            });
-          })
-          .catch( error => {
-            alert(error);
-          })
-          .finally(() => setLoading(false))
+        setUserDataForChat({
+          user_name: userName,
+        });
       }catch (e) {
 
       }
     }
-  }
+
 
   return loading ? (<Loader type="ThreeDots" color="#2BAD60" height={100} width={100} />) : (
     <form className="login-form" autoComplete="off">
-      <TextField
+      {/* <TextField
         id="chat-username"
         label="Enter Username"
         margin="normal"
@@ -59,7 +49,7 @@ const LoginForm = ({setUserDataForChat}) => {
             setUserName(event.target.value);
           }
         }}
-      />
+      /> */}
       <Button
         variant="contained"
         color="primary"

@@ -7,10 +7,6 @@ const messageSchema = new Schema({
     type: String,
     required: true
   },
-  user_avatar: {
-    type: String,
-    required: false
-  },
   message_text: {
     type: String,
     required: true

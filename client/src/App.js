@@ -18,9 +18,12 @@ const App = () =>{
     )
   }
   return (
-    <Chat
-      currentUserData={userData}
-    />
+    <div>
+      {/* <Users allUsers={allUsers}></Users> */}
+      <Chat
+        currentUserData={userData}
+      />
+    </div>
   );
 }
 
