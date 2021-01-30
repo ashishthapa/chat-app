@@ -2,13 +2,6 @@ This is a form from "https://github.com/geepalik/chat-app.git", by https://githu
 
 I am just forking and making changes to his contribution. All Credit to Gil Palikaras. 
 
-====== My changes Start =========
-
-
-
-
-
-====== My Changes End ===========
 
 
 ======= Original Readme Start =======

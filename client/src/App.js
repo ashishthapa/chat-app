@@ -22,7 +22,7 @@ const App = () =>{
   }
   return (
     <div>
-      <Users allUsers={allUsers}></Users>
+      {/* <Users allUsers={allUsers}></Users> */}
       <Chat
         currentUserData={userData}
       />
