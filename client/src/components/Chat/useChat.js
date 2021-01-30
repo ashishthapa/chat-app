@@ -10,6 +10,7 @@ const useChat = () => {
     socketRef.current = socketIOClient("http://localhost:5001");
 
     socketRef.current.on("mostRecentMessages", (mostRecentMessages) =>{
+      console.log('socketRef mostRecentMessages', mostRecentMessages);
       //on start, set as messages the mostRecentMessages
       //in case the server restarts, we want to replace the current messages
       //with those from database

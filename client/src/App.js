@@ -1,11 +1,14 @@
 import React, {useState} from "react";
 import Chat from "/components/Chat/Chat"
 import LoginForm from "./components/Login/LoginForm/LoginForm";
-
+import Users from "/components/Login/Users";
 import "./App.css"
 
 const App = () =>{
   const [userData, setUserData] = useState(null);
+  const [allUsers, setUsers] = useState(null);
+  console.log('current user', userData);
+
 
   if(userData === null){
     return (
@@ -19,7 +22,7 @@ const App = () =>{
   }
   return (
     <div>
-      {/* <Users allUsers={allUsers}></Users> */}
+      <Users allUsers={allUsers}></Users>
       <Chat
         currentUserData={userData}
       />

@@ -17,14 +17,26 @@ io.on("connection", (socket) =>{
 
   getMostRecentMessages()
     .then(results => {
+      console.log('latestmostRecentMessagesUsers', results);
       socket.emit("mostRecentMessages", results.reverse());
     })
     .catch(error => {
       socket.emit("mostRecentMessages", []);
     });
 
+  getLatestUsers()
+  .then(results => {
+    console.log('latestUsers', results);
+    socket.emit("latestUsers", results.reverse());
+  })
+  .catch(error => {
+    socket.emit("latestUsers", []);
+  });
+
+
 
   socket.on("newChatMessage",(data) => {
+    console.log('new chat message', data);
     //send event to every single connected socket
     try{
       const message = new Message(
@@ -54,6 +66,14 @@ async function getMostRecentMessages (){
     .find()
     .sort({_id:-1})
     .limit(10);
+}
+
+async function getUsers (){
+  console.log('getting users')
+  return await Message.user_name
+    .find()
+    .sort({_id:-1})
+    .limit();
 }
 
 app.use((req, res, next) => {
