@@ -1,3 +1,18 @@
+This is a form from "https://github.com/geepalik/chat-app.git", by https://github.com/geepalik. 
+
+I am just forking and making changes to his contribution. All Credit to Gil Palikaras. 
+
+================================ My changes Start ==============================
+
+
+
+
+
+================================ My Changes End ==============================
+
+
+================================ Original Readme Start ==============================
+
 # Real time chat app 
 Example of chat web application using Socket.IO with the MERN stack
 Client in React, Server in Node.js/Express
@@ -36,3 +51,5 @@ Go to client folder and run in local development
 -----
 
     $ yarn watch
+
+================================ Original Readme Ends ==============================
