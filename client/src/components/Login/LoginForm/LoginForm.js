@@ -10,7 +10,7 @@ const LoginForm = ({setUserDataForChat}) => {
   const imageInput = useRef("");
 
   const enterChatClick = () =>{
-    setUserName(userNameInput.current.value, imageInput.current.files[0]);
+    setUserName(userNameInput.current.value);
   }
 
   const sendData = async (options) => {
@@ -27,8 +27,6 @@ const LoginForm = ({setUserDataForChat}) => {
       });
     }else{
       setLoading(true);
-      const data = new FormData();
-      data.append('avatar',imageFile);
       try{
         sendData(data)
           .then(response => {
@@ -58,7 +56,7 @@ const LoginForm = ({setUserDataForChat}) => {
         onKeyDown={event => {
           if(event.key === "Enter"){
             event.preventDefault();
-            setUserName(event.target.value, imageInput.current.files[0]);
+            setUserName(event.target.value);
           }
         }}
       />
